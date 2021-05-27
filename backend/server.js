@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express=require("express");
 const app=express();
+
+
 app.use(require("cors")())
 app.use(express.json())
 
@@ -14,8 +16,7 @@ app.use(express.json());
 // ***********WRITE ROUTES BELOW*****************
 
 // This forwards any requests to /api/auth to auth.js in routes.
-app.use("/api/auth",require("./routes/auth"));
-
+app.use("/api/auth", require("./routes/auth"));
 
 
 // Listening to requests at PORT

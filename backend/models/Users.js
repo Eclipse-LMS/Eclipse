@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const crypto= require("crypto");
 
 const UserSchema= new mongoose.Schema({
     firstname: {
@@ -45,8 +47,8 @@ const UserSchema= new mongoose.Schema({
         }],
         default: []
     },
-    forgotPasswrodToken: String,
-    forgotPasswrodLimit: Date
+    resetPasswordToken: String,
+    resetPasswordLimit: Date
 },{
     timestamp: true
 });
@@ -61,6 +63,17 @@ UserSchema.pre("save", async function(next){
 
 UserSchema.methods.matchPasswords= async function(password){
     return await bcrypt.compare(password,this.password);
+}
+
+UserSchema.methods.getSignedToken = function(){
+    return jwt.sign({id: this._id}, process.env.JWT_SECRET);
+}
+
+UserSchema.methods.generateResetToken = function(){
+    const resetToken = crypto.randomBytes(20).toString("hex");
+    this.resetPasswordToken= crypto.createHash("sha256").update(resetToken).digest("hex");
+    this.resetPasswordLimit= Date.now() + 20 * (60 * 1000);
+    return resetToken;    
 }
 
 const User= mongoose.model("User", UserSchema);
