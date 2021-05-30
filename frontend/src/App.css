@@ -1,38 +1,266 @@
-.App {
+:root {
+  --blue: #484f4f;
+  --white: #ffffff;
+  --red: rgba(255, 0, 0, 0.8);
+  --grey:#c9c9c9;
+  --purple:#c8c3cc;
+  --violet:#563f46;
+  --box:#ebebeb;
+  --meracolor: #e9935a;;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: var(--grey);
+} 
+
+.root-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+}
+
+.box-controller {
+  visibility: visible;
+  display: flex;
+  max-width: 24em;
+  min-width: 25em;
+  padding:  0px;
+  align-items: center;
+  transition: visibility 0.5s ease-out;
+}
+.form-decor {
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(145, 145, 145, 0.2);
+  background-color: var(--box);
+  padding-bottom: 10px;
+}
+
+.reglog-form {
+  min-height: 385px;
+  position: relative;
+}
+
+/* input:focus::placeholder{
+  color: transparent;
+} */
+
+
+input[type="text"] {
+  border: 0px;
+  outline: none;
+}
+
+
+
+input[type="password"] {
+  border: 0px;
+  outline: none;
+}
+
+/* .register-btn {
+
+  position: relative;
+  bottom: -39px;
+  margin-left: 25%;
+  z-index: 9999;
+} */
+
+.controller {
+  flex: 1;
   text-align: center;
+  height: 100%;
+  line-height: 2;
+  cursor: pointer;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.box-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  max-width: 24em;
+  min-width: 21em;
+  border-radius: 6px;
+  padding: 24px;
+  padding-top: 13px;
+  padding-bottom: 0;
+}
+
+/* .inner-container {
+  transition: visibility 0.2s ease-out;
+} */
+
+/* .inner-container.show {
+  visibility: visible;
+} */
+
+.header {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 3px;
+  /* margin-left: 35px; */
+  /* margin-right: 35px; */
+  font-family: monaco, monospace;
+  font-size: 31px;
+  border-bottom: 2px solid ;
+}
+
+#Last-add {
+  padding-left: 15px;
+}
+.log-form a {
+  font-size: 15px;
+}
+.box {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.login-btn {
+  padding: 10px 50px;
+  font-size: 18px;
+  border:1px solid #222;
+  font-family: Oxygen, sans-serif;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+  bottom: -39px;
+  margin-left: 29%;
+  z-index: 9999;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.login-btn:hover,
+.login-btn:focus {
+ box-shadow: 0px 10px 30px 0px var(--grey) inset;
+  border: 1px solid #ddd;
+  color: black;
+
+}
+
+.register-btn {
+  padding: 10px 50px;
+  margin-left: 91px;
+  margin-right: 91px;
+  font-size: 18px;
+  border:1px solid #222;
+  font-family: Oxygen, sans-serif;
+  /* margin-top: 20px; */
+  cursor: pointer;
+  position: relative;
+}
+
+.register-btn:hover,
+.register-btn:focus {
+ box-shadow: 0px 10px 30px 0px var(--grey) inset;
+  border: 1px solid #ddd;
+  color: black;
+
+}
+
+
+
+/**hover-lable-design**/
+.form-lable {
+  width: 100%;
+  float: left;
+  position: absolute;
+  top: 13px;
+  font-size: 13px;
+  left: 11px;
+  transition: 0.5s;
+}
+
+.reglog-form .input-group {
+  position: relative;
+}
+
+.reglog-form input {
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  float: left;
+  position: relative;
+  z-index: 9999;
+  background: transparent;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  padding-top: 16px;
+}
+
+.input-group input:valid+.form-lable,
+.input-group input:focus+.form-lable {
+  top: -7px;
+  color: #605f5f;
+  /* color: var(--meracolor);   */
+  font-style: oblique;
+}
+.reglog-form .box {
+  overflow: hidden;
+  padding-top: 8px;
+}
+
+
+/* remember me and forgot password */
+
+.forpass{
+  font-size: 15px;
+  text-align: right;
+  float: right;
+  margin-right: 0px;
+
+}
+label {
+color: #666;
+font-size: .875rem;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: checkbox;
+     -moz-appearance: checkbox;
+          appearance: checkbox;
+  display: inline-block;
+  width: auto;
+}
+
+input[type="password"] {
+  margin-bottom: .5rem;
+}
+
+.line {
+  padding-top: 20px;
+}
+
+a {
+  font-size: 25px;
+  text-decoration: none;
+  color: #414141;
+}
+
+#fullname {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#fullname.p {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+#fullname > div {
+  padding: 0 2px;
+}
+.log-form .regis-form {
+  border-left: 1px solid #b9b9b9;
+}
+
+#First-add{
+  right: 15%;
 }

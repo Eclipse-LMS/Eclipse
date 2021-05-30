@@ -2,6 +2,11 @@ const express=require("express");
 const router= express.Router();
 const {register, login, forgotpassword, resetpassword}=require("../controller/auth");
 
+router.route("/register").get((req,res)=>{
+    res.status(200).json({
+        message:"get request"
+    });
+})
 router.route("/register").post(register);
 
 router.route("/login").post(login);
