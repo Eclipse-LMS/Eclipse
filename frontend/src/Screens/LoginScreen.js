@@ -71,14 +71,14 @@ class LoginBox extends React.Component {
             <div className="line">
               <label>
                 <input type="checkbox" value="IsRememberMe" name="remember" /> Remember me
-                </label>
+              </label>
                 <Link to="/forgotpassword"><a className="forpass" href="#">Forgot Password?</a></Link>
             </div>
           </div>
           <button type="button" className="login-btn" onClick={() => this.submit()}>Login</button>
 
         </div>
-        <div className="box-controller log-form">
+        <div className="box-controller1">
               <div className="controller" onClick={()=>this.setState({isSwitchOn: true})}>
                 <Link to="/login">Login</Link>
               </div>

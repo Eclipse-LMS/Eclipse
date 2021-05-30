@@ -131,7 +131,7 @@ class RegisterBox extends React.Component {
 
           </div>
         </div>
-        <div className="box-controller log-form">
+        <div className="box-controller2">
           <div className="controller" onClick={() => this.setState({ isSwitchOn: true })}>
             <Link to="/login">Login</Link>
           </div>

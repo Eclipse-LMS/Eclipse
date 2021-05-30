@@ -26,7 +26,7 @@ body{
   position: absolute;
 }
 
-.box-controller {
+.box-controller1 {
   visibility: visible;
   display: flex;
   max-width: 24em;
@@ -34,7 +34,19 @@ body{
   padding:  0px;
   align-items: center;
   transition: visibility 0.5s ease-out;
+  margin-top: 48%;
 }
+.box-controller2 {
+  visibility: visible;
+  display: flex;
+  max-width: 24em;
+  min-width: 25em;
+  padding:  0px;
+  align-items: center;
+  transition: visibility 0.5s ease-out;
+  margin-top: 10%;
+}
+
 .form-decor {
   -webkit-box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.2);
   box-shadow: 0px 0px 20px 0px rgba(145, 145, 145, 0.2);
@@ -78,6 +90,8 @@ input[type="password"] {
   height: 100%;
   line-height: 2;
   cursor: pointer;
+  margin-bottom: 0%;
+
 }
 
 
@@ -122,6 +136,20 @@ input[type="password"] {
   flex-direction: column;
   justify-content: center;
 }
+.fpsubmit-btn {
+  padding: 10px 50px;
+  font-size: 18px;
+  border:1px solid #222;
+  font-family: Oxygen, sans-serif;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+  bottom: 0px;
+  margin-left: 22%;
+  z-index: 9999;
+  position: absolute;
+  margin-bottom: 25%;
+}
 
 
 
@@ -134,7 +162,7 @@ input[type="password"] {
   cursor: pointer;
   position: relative;
   bottom: 0px;
-  margin-left: 23%;
+  margin-left: 27%;
   z-index: 9999;
   position: absolute;
   margin-bottom: 25%;
@@ -159,6 +187,8 @@ input[type="password"] {
   /* margin-top: 20px; */
   cursor: pointer;
   position: relative;
+  margin-top: 15%;
+  margin-bottom: 10%;
 }
 
 .register-btn:hover,
@@ -223,6 +253,7 @@ input[type="password"] {
 label {
 color: #666;
 font-size: .875rem;
+position: relative;
 }
 
 input[type="checkbox"] {
@@ -258,6 +289,7 @@ a {
 }
 #fullname > div {
   padding: 0 2px;
+  margin-top: 10%;
 }
 .log-form .regis-form {
   border-left: 1px solid #b9b9b9;
@@ -265,4 +297,26 @@ a {
 
 #First-add{
   right: 15%;
+}
+.input-group {
+  margin-top: 5%;
+}
+.input-group-fp {
+  margin-top: 15%;
+  position: relative;
+}
+.button-confirm{
+  padding: 10px 50px;
+  font-size: 18px;
+  border:1px solid #222;
+  font-family: Oxygen, sans-serif;
+  margin-top: 20px;
+  cursor: pointer;
+  position: relative;
+  bottom: 0px;
+  margin-left: 22%;
+  z-index: 9999;
+  position: absolute;
+  margin-bottom: 20%;
+
 }

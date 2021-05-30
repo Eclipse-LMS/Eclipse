@@ -43,7 +43,7 @@ class ForgotPassword extends React.Component {
           </div>
                 <div className="box">
 
-                    <div className="input-group">
+                    <div className="input-group-fp">
                         <lable htmlFor="userid">
                             <input type="text" for="Email" id="Email-add" required onChange={(event) => { this.setState({ email: event.target.value }) }} />
                             <span class="placeholder form-lable">Enter Email</span>
@@ -54,7 +54,7 @@ class ForgotPassword extends React.Component {
 
 
 
-                    <button type="button" className="login-btn" onClick={() => this.submit()}>Submit</button>
+                    <button type="button" className="fpsubmit-btn" onClick={() => this.submit()}>Submit</button>
 
                 </div>
             </div>
