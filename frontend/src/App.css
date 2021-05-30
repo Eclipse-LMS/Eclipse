@@ -133,9 +133,11 @@ input[type="password"] {
   margin-top: 20px;
   cursor: pointer;
   position: relative;
-  bottom: -39px;
-  margin-left: 29%;
+  bottom: 0px;
+  margin-left: 23%;
   z-index: 9999;
+  position: absolute;
+  margin-bottom: 25%;
 }
 
 
