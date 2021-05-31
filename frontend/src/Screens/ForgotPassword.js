@@ -10,9 +10,6 @@ class ForgotPassword extends React.Component {
             emailError: ""
         };
     }
-    //1819210181
-
-
     valid() {
         if ((!this.state.email.includes("@") || this.state.email == "") && (this.state.password.length < 5)) {
             this.setState({ emailError: "Invalid Email" })
