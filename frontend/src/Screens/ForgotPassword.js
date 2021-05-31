@@ -11,10 +11,21 @@ class ForgotPassword extends React.Component {
         };
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     // 1819210173
 =======
     // 2819210187
 >>>>>>> a23255168cdb62167805122d4e3ba789ccbe1cb0
+=======
+    // 1819210216
+=======
+<<<<<<< HEAD
+    // 1819210050
+=======
+    // 2819210187
+>>>>>>> a23255168cdb62167805122d4e3ba789ccbe1cb0
+>>>>>>> 7fd255c426534f1ac51ee6fabc686ce4acf45bc4
+>>>>>>> 0c01cef33e6904a231488bef9da9592e9124deec
     valid() {
         if ((!this.state.email.includes("@") || this.state.email == "") && (this.state.password.length < 5)) {
             this.setState({ emailError: "Invalid Email" })
