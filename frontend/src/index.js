@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import ResetPassword from './Screens/ResetPassword';
+import  App from './App';
 import reportWebVitals from './reportWebVitals';
-import ResetPasswrod from './Screens/ResetPassword';
+//import ResetPasswrod from './Screens/ResetPassword';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ResetPassword />
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

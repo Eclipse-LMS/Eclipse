@@ -1,34 +1,41 @@
 import '../App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import ForgotPassword from './ForgotPassword';
 
-class ResetPasswrod extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      password: "",
-      passwordError: ""
-    };
+function ResetPasswrod()
+{
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState({});
+
+  const [confpassword, setConfPassword] = useState("");
+  const [confpasswordError, setConfPasswordError] = useState({});
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const isValid = formValidation();
+    if (isValid)
+      alert("form has been submitted");
+  };
+
+  const formValidation = () => {
+    const passwordError = {};
+    let isValid = true;
+    if (password.length < 5) {
+      passwordError.error = "Password length must be atleast 5 characters";
+      isValid = false;
+    }
+
+    if (password != confpassword) {
+      confpasswordError.error = "Password is not matching";
+      isValid = false;
+    }
+
+    setPasswordError(passwordError)
+    setConfPasswordError(confpasswordError)
+    return isValid;
   }
 
-  valid() {
-    if (this.state.password.length < 5) {
-      this.setState({ passwordError: "Password length must be atleast 5 characters" })
-    }
-    else {
-      return true
-    }
-  }
-
-  submit() {
-    this.setState({ passwordError: "" })
-    if (this.valid()) {
-      alert("Form has been submited")
-    }
-  }
-
-  render() {
     return (
       <div className="root-container ">
         <div class="form-decor">
@@ -44,23 +51,23 @@ class ResetPasswrod extends React.Component {
 
                 <div className="input-group">
                   <lable htmlFor="password">
-                    <input type="password" for="password" id="Password-add" required onChange={(event) => { this.setState({ password: event.target.value }) }}></input>
+                    <input type="password" for="password" id="Password-add" required onChange={(e) => { setPassword(e.target.value) }}></input>
                     <span class="placeholder form-lable">Enter New Password</span>
                   </lable>
                 </div>
 
-                <p style={{ color: "red", fontSize: "12px" }}>{this.state.passwordError}</p>
+                <p style={{ color: "red", fontSize: "12px" }}>{passwordError.error}</p>
                 <div className="input-group">
                   <lable htmlFor="password">
-                    <input type="password" for="password" id="Password-add" required onChange={(event) => { this.setState({ password: event.target.value }) }}></input>
+                    <input type="password" for="password" id="Password-add" required onChange={(e) => { setConfPassword(e.target.value) }}></input>
                     <span class="placeholder form-lable">Confirm Password</span>
                   </lable>
                 </div>
 
-                <p style={{ color: "red", fontSize: "12px" }}>{this.state.passwordError}</p>
+                <p style={{ color: "red", fontSize: "12px" }}>{confpasswordError.error}</p>
 
 
-                <button type="button" className="button-confirm" onClick={() => this.submit()}>Submit</button>
+                <button type="button" className="button-confirm" onClick={onSubmit}>Submit</button>
 
               </div>
             </div>
@@ -70,7 +77,6 @@ class ResetPasswrod extends React.Component {
 
 
     )
-  }
 }
 
 export default ResetPasswrod;

@@ -1,68 +1,61 @@
 import '../App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-class ForgotPassword extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            email: "",
-            emailError: ""
-        };
-    }
-    // 1819210173
-    valid() {
-        if ((!this.state.email.includes("@") || this.state.email == "") && (this.state.password.length < 5)) {
-            this.setState({ emailError: "Invalid Email" })
-            this.setState({ passwordError: "Password length must be atleast 5 characters" })
+
+function ForgotPassword() 
+{
+    const [email, setEmail] = useState("");
+    const [emailError, setEmailError] = useState({});
+
+    const onSubmit = () => {
+        const isValid = formValidation();
+        if (isValid)
+            alert("form has been submitted");
+    };
+
+    const formValidation = () => {
+        const emailError = {};
+        let isValid = true;
+        if (!email.includes("@")) {
+            emailError.error = "Not a valid email";
+            isValid = false;
         }
-        else if ((!this.state.email.includes("@") || this.state.email == "")) {
-            this.setState({ emailError: "Invalid Email" })
-        }
-        else {
-            return true
-        }
+        setEmailError(emailError);
+        return isValid;
     }
 
-    submit() {
-        this.setState({ emailError: "" })
-        if (this.valid()) {
-            alert("Form has been submited")
-        }
-    }
 
-    render() {
-        return (
-            <div className="root-container ">
-            <div class="form-decor">
-              <div className="box-container reglog-form">
-  
-            <div className="inner-container">
-                <div className="header">
-                    Forgot Password
+return (
+    <div className="root-container ">
+        <div class="form-decor">
+            <div className="box-container reglog-form">
+
+                <div className="inner-container">
+                    <div className="header">
+                        Forgot Password
           </div>
-                <div className="box">
+                    <div className="box">
 
-                    <div className="input-group-fp">
-                        <lable htmlFor="userid">
-                            <input type="text" for="Email" id="Email-add" required onChange={(event) => { this.setState({ email: event.target.value }) }} />
-                            <span class="placeholder form-lable">Enter Email</span>
-                        </lable>
+                        <div className="input-group">
+                            <lable htmlFor="userid">
+                                <input type="text" for="Email" id="Email-add" required onChange={(e) => { setEmail(e.target.value) }} />
+                                <span class="placeholder form-lable">Enter Email</span>
+                            </lable>
+                        </div>
+
+                        <p style={{ color: "red", fontSize: "12px" }}>{emailError.error}</p>
+
+
+
+                        <button type="button" className="fpsubmit-btn" onClick={onSubmit}>Submit</button>
+
                     </div>
-
-                    <p style={{ color: "red", fontSize: "12px" }}>{this.state.emailError}</p>
-
-
-
-                    <button type="button" className="fpsubmit-btn" onClick={() => this.submit()}>Submit</button>
-
                 </div>
             </div>
-            </div>
-            </div>
-            </div>
-        )
-    }
+        </div>
+    </div>
+)
 }
 
 export default ForgotPassword;
