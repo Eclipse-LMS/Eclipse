@@ -22,7 +22,7 @@ const ResetPasswrod = ({match}) =>
         alert("form has been submitted");
         history.push("/login");
       } catch (error) {
-        alert(error.response.data.error);
+        alert("Authentication Error");
       }
     }
   };

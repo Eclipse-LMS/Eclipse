@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import  App from './App';
 import reportWebVitals from './reportWebVitals';
-//import ResetPasswrod from './Screens/ResetPassword';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -11,6 +10,10 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+window.onbeforeunload = () => {
+  localStorage.clear();
+}
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

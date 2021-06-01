@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import axios from 'axios';
 
 function LoginBox() {
@@ -9,6 +9,7 @@ function LoginBox() {
   const [emailError, setEmailError] = useState({});
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState({});
+  const history = useHistory();
 
   const onSubmit = async (e) => {
     const user = {email, password};
@@ -16,10 +17,12 @@ function LoginBox() {
     const isValid = formValidation();
     if (isValid)
     try {
-      const res = await axios.post("/api/auth/login",user);
-      alert(res);
+      const { data } = await axios.post("/api/auth/login",user);
+      alert("form has been submitted");
+      localStorage.setItem("authToken", data.token);
+      history.push("/dashboard");
     } catch (error) {
-      alert(error.response.data.error)
+      alert("Authentication Error")
     }
   };
 
@@ -42,7 +45,7 @@ function LoginBox() {
       isValid = false;
     }
 
-    var emailRegex = new RegExp("^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
+    var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     if(!emailRegex.test(email)) {
       emailError.error = "Please enter valid email";
       isValid = false;

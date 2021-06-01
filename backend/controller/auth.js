@@ -24,6 +24,7 @@ exports.register= async (req,res,next)=>{
     } catch (error) {
         res.status(401).json({
             success: false,
+            errorin: ei,
             error: error.message
         })        
     }

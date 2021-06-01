@@ -15,7 +15,7 @@ function ForgotPassword()
                 const {res} = await axios.post("/api/auth/forgotpassword",{email});
                 alert("form has been submitted");
             } catch (error) {
-                alert(error.response.data.error);
+                alert("Authentication Error");
             }
         }
     };
@@ -27,7 +27,7 @@ function ForgotPassword()
             emailError.error = "Please provide Email";
             isValid = false;
           }
-          var emailRegex = new RegExp("^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
+          var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
           if(!emailRegex.test(email)) {
             emailError.error = "Please enter valid email";
             isValid = false;
