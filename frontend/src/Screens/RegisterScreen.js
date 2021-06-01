@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 function RegisterBox() {
@@ -21,14 +21,8 @@ function RegisterBox() {
   const [confpasswordError, setConfPasswordError] = useState({});
 
 
-
-
-  async function onSubmit() {
-    // this.setState({ firstnameError: "" })
-    // this.setState({ lastnameError: "" })
-    // this.setState({ emailError: "" })
-    // this.setState({ passwordError: "" })
-    // this.setState({ confpasswordError: "" })
+   const onSubmit = async (e) =>{
+     e.preventDefault();
     const user = { firstname , lastname, email, password};
     const isValid = formValidation();
     if (isValid) {
@@ -39,14 +33,14 @@ function RegisterBox() {
         alert(error.response.data.error)
       }
     }
-  }
+  };
 
   const formValidation = () => {
-    const firstnameError = {};
-    const lastnameError = {};
-    const emailError = {};
-    const passwordError = {};
-    const confpasswordError = {};
+    let firstnameError = {};
+    let lastnameError = {};
+    let emailError = {};
+    let passwordError = {};
+    let confpasswordError = {};
     let isValid = true;
     if (firstname == "") {
       firstnameError.error = "Please provide first name";
@@ -57,14 +51,30 @@ function RegisterBox() {
       lastnameError.error = "Please provide last name";
       isValid = false;
     }
-
-    if (!email.includes("@")) {
-      emailError.error = "Please provide valid email";
+    if (email == "") {
+      emailError.error = "Please provide Email";
       isValid = false;
     }
 
-    if (password.length < 5) {
-      passwordError.error = "Password length must be atleast 5 characters";
+    if (password == "") {
+      passwordError.error = "Please provide password";
+      isValid = false;
+    }
+
+    if (confpassword == "") {
+      confpasswordError.error = "Please confirm password";
+      isValid = false;
+    }
+
+    var passRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    if(!passRegex.test(password)) {
+      passwordError.error = "Please enter valid password";
+      isValid = false;
+    }
+
+    var emailRegex = new RegExp("^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
+    if(!emailRegex.test(email)) {
+      emailError.error = "Please enter valid email";
       isValid = false;
     }
 

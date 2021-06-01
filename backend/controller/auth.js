@@ -113,13 +113,13 @@ exports.forgotpassword= async (req,res,next)=>{
 
 exports.resetpassword= async (req,res,next)=>{
     var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-        if(!strongRegex.test(req.body.password)) {
-            res.status(401).json({
-                success: false,
-                error: "User validation failed: password: Please provide a valid password"
-            });
-            return next();
-        }
+    if(!strongRegex.test(req.body.password)) {
+        res.status(401).json({
+            success: false,
+            error: "User validation failed: password: Please provide a valid password"
+        });
+        return next();
+    }
     const resetToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex");
     try {
         const user = await User.findOne({

@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import axios from 'axios';
 
 
 function ForgotPassword() 
@@ -8,23 +8,33 @@ function ForgotPassword()
     const [email, setEmail] = useState("");
     const [emailError, setEmailError] = useState({});
 
-    const onSubmit = () => {
+    const onSubmit = async () => {
         const isValid = formValidation();
-        if (isValid)
-            alert("form has been submitted");
+        if (isValid){
+            try {
+                const {res} = await axios.post("/api/auth/forgotpassword",{email});
+                alert("form has been submitted");
+            } catch (error) {
+                alert(error.response.data.error);
+            }
+        }
     };
 
     const formValidation = () => {
         const emailError = {};
         let isValid = true;
-        if (!email.includes("@")) {
-            emailError.error = "Not a valid email";
+        if (email == "") {
+            emailError.error = "Please provide Email";
             isValid = false;
-        }
+          }
+          var emailRegex = new RegExp("^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
+          if(!emailRegex.test(email)) {
+            emailError.error = "Please enter valid email";
+            isValid = false;
+          }
         setEmailError(emailError);
         return isValid;
     }
-
 
 return (
     <div className="root-container ">

@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import ForgotPassword from './ForgotPassword';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 function LoginBox() {
 
@@ -10,23 +10,41 @@ function LoginBox() {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState({});
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
+    const user = {email, password};
     e.preventDefault();
     const isValid = formValidation();
     if (isValid)
-      alert("form has been submitted");
+    try {
+      const res = await axios.post("/api/auth/login",user);
+      alert(res);
+    } catch (error) {
+      alert(error.response.data.error)
+    }
   };
 
   const formValidation = () => {
     const emailError = {};
     const passwordError = {};
     let isValid = true;
-    if (!email.includes("@")) {
-      emailError.error = "Not a valid email";
+    if (email == "") {
+      emailError.error = "Please provide Email";
       isValid = false;
     }
-    if (password.length < 5) {
-      passwordError.error = "Password length must be atleast 5 characters";
+
+    if (password == "") {
+      passwordError.error = "Please provide password";
+      isValid = false;
+    }
+    var passRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    if(!passRegex.test(password)) {
+      passwordError.error = "Please enter valid password";
+      isValid = false;
+    }
+
+    var emailRegex = new RegExp("^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$");
+    if(!emailRegex.test(email)) {
+      emailError.error = "Please enter valid email";
       isValid = false;
     }
     setPasswordError(passwordError)

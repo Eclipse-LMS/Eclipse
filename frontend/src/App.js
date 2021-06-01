@@ -18,14 +18,12 @@ class App extends React.Component {
       <Router>
 
         <Switch>
-          <Route exact path="/"><HomeScreen /></Route>
-          <Route exact path="/login"><LoginBox /></Route>
-          <Route exact path="/register"><RegisterBox /></Route>
-          <Route exact path="/forgotpassword"><ForgotPassword /></Route>
-          <Route exact path="/resetpassword/:resetToken"><ResetPassword /></Route>
-
+          <Route exact path="/" component = {HomeScreen}></Route>
+          <Route exact path="/login" component = {LoginBox}></Route>
+          <Route exact path="/register" component = {RegisterBox}></Route>
+          <Route exact path="/forgotpassword" component = {ForgotPassword}></Route>
+          <Route exact path="/resetpassword/:resetToken" component = {ResetPassword}></Route>
         </Switch>
-
       </Router>
     )
   }

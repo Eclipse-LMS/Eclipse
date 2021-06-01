@@ -1,6 +1,6 @@
 import '../App.css';
 import React from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // class HomeScreen extends React.Component 
 function HomeScreen() {

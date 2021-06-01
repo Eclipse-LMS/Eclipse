@@ -1,28 +1,43 @@
 import '../App.css';
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-import ForgotPassword from './ForgotPassword';
+import { useHistory} from 'react-router-dom';
+import axios from 'axios';
 
-function ResetPasswrod()
+const ResetPasswrod = ({match}) =>
 {
+  const history = useHistory();
+
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState({});
 
   const [confpassword, setConfPassword] = useState("");
   const [confpasswordError, setConfPasswordError] = useState({});
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const isValid = formValidation();
-    if (isValid)
-      alert("form has been submitted");
+    if (isValid){
+      try {
+        const {res} = await axios.put(`/api/auth/resetpassword/${match.params.resetToken}`, {password});
+        alert("form has been submitted");
+        history.push("/login");
+      } catch (error) {
+        alert(error.response.data.error);
+      }
+    }
   };
 
   const formValidation = () => {
     const passwordError = {};
+    const confpasswordError = {};
     let isValid = true;
-    if (password.length < 5) {
-      passwordError.error = "Password length must be atleast 5 characters";
+    if (password == "") {
+      passwordError.error = "Please provide password";
+      isValid = false;
+    }
+    var passRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+    if(!passRegex.test(password)) {
+      passwordError.error = "Please enter valid password";
       isValid = false;
     }
 
@@ -46,9 +61,6 @@ function ResetPasswrod()
                 Reset Password
               </div>
               <div className="box">
-
-
-
                 <div className="input-group">
                   <lable htmlFor="password">
                     <input type="password" for="password" id="Password-add" required onChange={(e) => { setPassword(e.target.value) }}></input>
@@ -74,8 +86,6 @@ function ResetPasswrod()
           </div>
         </div>
       </div>
-
-
     )
 }
 
