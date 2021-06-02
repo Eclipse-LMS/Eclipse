@@ -17,9 +17,13 @@ exports.register= async (req,res,next)=>{
         const user = await User.create({
         firstname,lastname,email,password
         });
+        res.cookie('token', 'Bearer '.concat(user.getSignedToken()), {
+            maxAge: 2628000000,
+            httpOnly: true,
+            signed: true
+        });
         res.status(201).json({
-            success: true,
-            token: user.getSignedToken()
+            success: true
         })
     } catch (error) {
         res.status(401).json({
@@ -45,7 +49,7 @@ exports.login= async (req,res,next)=>{
         const user = await User.findOne({ email }).select("+password");
 
         if(!user){
-            res.status(401).json({
+            res.status(402).json({
                 success: false,
                 error: "User not found"
             });
@@ -54,19 +58,24 @@ exports.login= async (req,res,next)=>{
 
         const isMatch = await user.matchPasswords(password);
         if (!isMatch){
-            res.status(401).json({
+            res.status(403).json({
                 success: false,
                 error: "Incorrect Password"
             });
             return next();
         }
+        res.cookie('token', 'Bearer '.concat(user.getSignedToken()), {
+            maxAge: 2628000000,
+            httpOnly: true,
+            signed: true,
+        });
         res.status(200).json({
             success: true,
-            token: user.getSignedToken()
         });
 
     } catch (error) {
-        res.status(200).json({
+        console.log(error);
+        res.status(404).json({
             success: false,
             error: error.message
         })
@@ -146,4 +155,11 @@ exports.resetpassword= async (req,res,next)=>{
             error: "Invalid reset token"
         });
     }
+}
+
+exports.logout = (req,res,next) => {
+    res.clearCookie("token");
+    res.status(201).json({
+        success: true
+    });
 }

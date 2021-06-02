@@ -29,7 +29,6 @@ function RegisterBox() {
       try {
         const { data } = await axios.post("/api/auth/register", user);
         alert("From has been submited")
-        localStorage.setItem("authToken", data.token);
         history.push("/dashboard");
       } catch (error) {
         alert("Authentication Error");
