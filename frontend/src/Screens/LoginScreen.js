@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useState } from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 function LoginBox() {
@@ -12,18 +12,18 @@ function LoginBox() {
   const history = useHistory();
 
   const onSubmit = async (e) => {
-    const user = {email, password};
+    const user = { email, password };
     e.preventDefault();
     const isValid = formValidation();
     if (isValid)
-    try {
-      const { data } = await axios.post("/api/auth/login",user);
-      alert("form has been submitted");
-      localStorage.setItem("authToken", data.token);
-      history.push("/dashboard");
-    } catch (error) {
-      alert("Authentication Error")
-    }
+      try {
+        const { data } = await axios.post("/api/auth/login", user);
+        alert("form has been submitted");
+        localStorage.setItem("authToken", data.token);
+        history.push("/dashboard");
+      } catch (error) {
+        alert("Authentication Error")
+      }
   };
 
   const formValidation = () => {
@@ -40,13 +40,13 @@ function LoginBox() {
       isValid = false;
     }
     var passRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-    if(!passRegex.test(password)) {
+    if (!passRegex.test(password)) {
       passwordError.error = "Please enter valid password";
       isValid = false;
     }
 
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    if(!emailRegex.test(email)) {
+    if (!emailRegex.test(email)) {
       emailError.error = "Please enter valid email";
       isValid = false;
     }
@@ -56,7 +56,7 @@ function LoginBox() {
   }
 
   return (
-    <div className="root-container ">
+    <div className="root-container">
       <div class="form-decor">
         <div className="box-container reglog-form">
 
@@ -91,20 +91,23 @@ function LoginBox() {
                 <Link to="/forgotpassword"><a className="forpass" href="#">Forgot Password?</a></Link>
               </div>
             </div>
-
+            <div className="center">
             <button type="button" className="login-btn" onClick={onSubmit}>Login</button>
+            </div>
+          </div>
 
-          </div>
-          <div className="box-controller1">
-            <div className="controller">
-              <Link to="/login">Login</Link>
-            </div>
-            <div className="controller regis-form" >
-              <Link to="/register">Register</Link>
-            </div>
-          </div>
         </div>
       </div>
+      <div className="box-controller1">
+
+        <div className="active-button">
+          <Link to="/login">Login</Link>
+        </div>
+        <div className="inactive-button1" >
+          <Link  to="/register">Register</Link>
+        </div>
+      </div>
+
     </div>
   )
 }

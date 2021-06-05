@@ -53,7 +53,7 @@ const ResetPasswrod = ({match}) =>
 
     return (
       <div className="root-container ">
-        <div class="form-decor">
+        <div class="form-decor-fp">
           <div className="box-container reglog-form">
 
             <div className="inner-container">

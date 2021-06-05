@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link, useHistory} from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
 function RegisterBox() {
@@ -21,9 +21,9 @@ function RegisterBox() {
   const [confpasswordError, setConfPasswordError] = useState({});
   const history = useHistory();
 
-   const onSubmit = async (e) =>{
-     e.preventDefault();
-    const user = { firstname , lastname, email, password};
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const user = { firstname, lastname, email, password };
     const isValid = formValidation();
     if (isValid) {
       try {
@@ -69,13 +69,13 @@ function RegisterBox() {
     }
 
     var passRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
-    if(!passRegex.test(password)) {
+    if (!passRegex.test(password)) {
       passwordError.error = "Please enter valid password";
       isValid = false;
     }
 
     var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    if(!emailRegex.test(email)) {
+    if (!emailRegex.test(email)) {
       emailError.error = "Please enter valid email";
       isValid = false;
     }
@@ -94,7 +94,7 @@ function RegisterBox() {
   }
 
   return (
-    <div className="root-container ">
+    <div className="root-container">
       <div class="form-decor">
         <div className="box-container reglog-form">
           <div className="inner-container">
@@ -148,21 +148,22 @@ function RegisterBox() {
               </div>
 
               <p style={{ color: "red", fontSize: "12px" }}>{confpasswordError.error}</p>
-
-              <button type="button" className="register-btn" onClick={onSubmit}>Register</button>
-
-            </div>
-          </div>
-          <div className="box-controller2">
-            <div className="controller">
-              <Link to="/login">Login</Link>
-            </div>
-            <div className="controller regis-form" >
-              <Link to="/register">Register</Link>
+              <div className="center">
+                <button type="button" className="register-btn" onClick={onSubmit}>Register</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div className = "box-controller1">
+        <div className="inactive-button2">
+          <Link to="/login">Login</Link>
+        </div>
+        <div className="active-button" >
+          <Link to="/register">Register</Link>
+        </div>
+      </div>
+
     </div>
   )
 }
