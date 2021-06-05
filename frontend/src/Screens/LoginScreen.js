@@ -4,7 +4,6 @@ import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 function LoginBox() {
-
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState({});
   const [password, setPassword] = useState("");
@@ -16,14 +15,14 @@ function LoginBox() {
     e.preventDefault();
     const isValid = formValidation();
     if (isValid)
-      try {
-        const { data } = await axios.post("/api/auth/login", user);
-        alert("form has been submitted");
-        localStorage.setItem("authToken", data.token);
-        history.push("/dashboard");
-      } catch (error) {
-        alert("Authentication Error")
-      }
+    try {
+      const { data } = await axios.post("/api/auth/login",user);
+      alert("form has been submitted");
+      history.push("/dashboard");
+    } catch (error) {
+      alert(error)
+      console.log(error.data);
+    }
   };
 
   const formValidation = () => {
