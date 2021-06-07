@@ -1,4 +1,4 @@
-import '../App.css';
+import '../Screens/ForgotPassword.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 

@@ -231,16 +231,23 @@ input[type="password"] {
 }
 .button-confirm:hover,
 .button-confirm:focus {
- box-shadow: 0px 10px 30px 0px var(--hower) inset;
+ /* box-shadow: 0px 10px 30px 0px var(--hower) inset;
+  border: 1px solid #ddd;
+  color: white; */
   border: 1px solid #ddd;
   color: white;
+  opacity: 90%;
 
 }
 .fpsubmit-btn:hover,
 .fpsubmit-btn:focus {
- box-shadow: 0px 10px 30px 0px var(--hower) inset;
+ /* box-shadow: 0px 10px 30px 0px var(--hower) inset;
   border: 1px solid #ddd;
   color: white;
+ */
+ border: 1px solid #ddd;
+ color: white;
+ opacity: 90%;
 
 }
 

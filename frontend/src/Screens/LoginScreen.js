@@ -1,4 +1,4 @@
-import '../App.css';
+import '../Screens/LoginScreen.css';
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
@@ -15,14 +15,14 @@ function LoginBox() {
     e.preventDefault();
     const isValid = formValidation();
     if (isValid)
-    try {
-      const { data } = await axios.post("/api/auth/login",user);
-      alert("form has been submitted");
-      history.push("/dashboard");
-    } catch (error) {
-      alert(error)
-      console.log(error.data);
-    }
+      try {
+        const { data } = await axios.post("/api/auth/login", user);
+        alert("form has been submitted");
+        history.push("/dashboard");
+      } catch (error) {
+        alert(error)
+        console.log(error.data);
+      }
   };
 
   const formValidation = () => {
@@ -84,14 +84,18 @@ function LoginBox() {
               <p style={{ color: "red", fontSize: "12px" }}>{passwordError.error}</p>
 
               <div className="line">
-                <label>
-                  <input type="checkbox" value="IsRememberMe" name="remember" /> Remember me
-              </label>
+                  <input type="checkbox" id="remember-me" value="IsRememberMe" name="remember" />
+
+                  <label for="remember-me">
+                    Remember me
+                  </label>
+
                 <Link to="/forgotpassword"><a className="forpass" href="#">Forgot Password?</a></Link>
+
               </div>
             </div>
             <div className="center">
-            <button type="button" className="login-btn" onClick={onSubmit}>Login</button>
+              <button type="button" className="login-btn" onClick={onSubmit}>Login</button>
             </div>
           </div>
 
@@ -103,7 +107,7 @@ function LoginBox() {
           <Link to="/login">Login</Link>
         </div>
         <div className="inactive-button1" >
-          <Link  to="/register">Register</Link>
+          <Link to="/register">Register</Link>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import '../App.css';
+import '../Screens/RegisterScreen.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
