@@ -84,9 +84,9 @@ function LoginBox() {
               <p style={{ color: "red", fontSize: "12px" }}>{passwordError.error}</p>
 
               <div className="line">
-                  <input type="checkbox" id="remember-me" value="IsRememberMe" name="remember" />
+                  <input type="checkbox" value="IsRememberMe" name="remember" />
 
-                  <label for="remember-me">
+                  <label for="remember-me" className="remember-me">
                     Remember me
                   </label>
 

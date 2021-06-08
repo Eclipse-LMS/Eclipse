@@ -179,13 +179,13 @@ input[type="password"] {
 
 
 
- .forpass{
-  font-size: 15px;
-  text-align: right;
-  float: right;
-  margin-right: 0px;
-
+.forpass{
+font-size: 15px;
+text-align: right;
+float: right;
+margin-right: 0px;
 }  
+
 label {
   color: #666;
   font-size: .875rem;
@@ -253,3 +253,9 @@ box-shadow: inset 11px 0px 21px -10px #ccc, inset 0px 12px 8px -10px #ccc
 box-shadow: inset -11px 0px 21px -10px #ccc, inset 0px 12px 8px -10px #ccc
 }
 
+.remember-me{
+font-size: 15px;
+text-align: left;
+float: left;
+margin-left: 0px;
+}
