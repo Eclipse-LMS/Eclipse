@@ -2,6 +2,8 @@ require("dotenv").config();
 const express=require("express");
 const app=express();
 
+const cookieParser = require("cookie-parser");
+app.use(cookieParser('123'));
 
 app.use(require("cors")({
     origin: "http://localhost:3000"
@@ -13,12 +15,11 @@ connectDB();
 
 // Uses json middleware from express to transform data to json format.
 app.use(express.json());
-
+const { protect } = require("./middleware/authenticate");
 // ***********WRITE ROUTES BELOW*****************
 
 // This forwards any requests to /api/auth to auth.js in routes.
 app.use("/api/auth", require("./routes/auth"));
-
 
 // Listening to requests at PORT
 const PORT=process.env.PORT || 5000;
