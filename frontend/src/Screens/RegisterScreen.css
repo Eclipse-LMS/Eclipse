@@ -122,7 +122,7 @@ input[type="password"] {
   font-family: Oxygen, sans-serif;
   cursor: pointer;
   position: relative;
-  margin-top: -2%;
+  margin-top: 10%;
   margin-bottom: 0%;
   background-color:var(--button) ;
   color: white;
