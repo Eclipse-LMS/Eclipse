@@ -122,7 +122,7 @@ input[type="password"] {
   font-family: Oxygen, sans-serif;
   cursor: pointer;
   position: relative;
-  margin-top: 10%;
+  margin-top: -2%;
   margin-bottom: 0%;
   background-color:var(--button) ;
   color: white;
@@ -244,4 +244,3 @@ box-shadow: inset 11px 0px 21px -10px #ccc, inset 0px 12px 8px -10px #ccc
   background-color: var(--box);
 box-shadow: inset -11px 0px 21px -10px #ccc, inset 0px 12px 8px -10px #ccc
 }
-

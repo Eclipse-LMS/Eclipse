@@ -1,5 +1,7 @@
 .sidebar{
+    box-sizing: border-box;
+    border: 3px solid #24305E;
     height: 100%;
     width: 100%;
-    background-color: bisque;
+    background-color: #F8E9A1;
 }

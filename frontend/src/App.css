@@ -21,10 +21,10 @@ body{
   /* background-color: var(--grey); */
 } 
 
-.container{
+/* .container{
   background-image: url("./BgImages/bg1.jpg");
   background-size: cover;
-}
+} */
 
  .form-decor-fp {
   -webkit-box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.2);

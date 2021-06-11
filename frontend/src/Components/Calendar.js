@@ -7,7 +7,7 @@ import {CalendarComponent} from '@syncfusion/ej2-react-calendars';
 function Calendar()  {
     return(
         <div className="calendar">
-            <CalendarComponent style = {{border :'solid',borderColor: '#DC143C',maxWidth :'310px',minWidth : '300px',minHeight : '325px',maxHeight :'325px' }}></CalendarComponent>
+            <CalendarComponent style = {{border :'solid',borderColor: '#24305E',maxWidth :'310px',minWidth : '300px',minHeight : '325px',maxHeight :'325px' }}></CalendarComponent>
             <div className="EventList">Events</div>
         </div>
     );

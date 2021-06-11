@@ -16,7 +16,6 @@ class App extends React.Component {
     return (
       <Router>
         <Switch>
-          <div className="container">
           <Route exact path="/" component = {HomeScreen}></Route>
           <Route exact path="/login" component = {LoginBox}></Route>
           <Route exact path="/register" component = {RegisterBox}></Route>
@@ -24,7 +23,6 @@ class App extends React.Component {
           <Route exact path="/resetpassword/:resetToken" component = {ResetPassword}></Route>
           <Route exact path="/dashboard" component = {DashboardScreen} />
           <Route exact path="/logout" component = {LogoutHandle} />
-          </div>
         </Switch>
       </Router>
     )
