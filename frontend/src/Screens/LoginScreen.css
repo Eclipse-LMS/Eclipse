@@ -189,8 +189,6 @@ margin-right: 0px;
 label {
   color: #666;
   font-size: .875rem;
-  position: relative;
-  vertical-align: top;
   }
 
 input[type="checkbox"] {
@@ -206,6 +204,7 @@ input[type="password"] {
 }
 
  .line {
+   display:inline;
   padding-top: 20px;
 } 
 

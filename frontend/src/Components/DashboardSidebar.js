@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./DashboardSidebar.css";
 import React from "react";
+import {Link} from "react-router-dom"
 
 const DashboardSidebar = () => {
   return (
@@ -25,11 +26,11 @@ const DashboardSidebar = () => {
             aria-labelledby="flush-headingOne"
             data-bs-parent="#accordionFlushExample"
           >
-            <ul >
-              <li>Do this</li>
-              <li>Or that</li>
-              <li>Maybe this</li>
-              <li>Naah that</li>
+            <ul className="sidebar-list">
+              <Link to="/dashboard/join-classroom"><li>Join Classroom</li></Link>
+              <Link to="/dashboard/join-classroom"><li>Join Classroom</li></Link>
+              <Link to="/dashboard/join-classroom"><li>Join Classroom</li></Link>
+              <Link to="/dashboard/join-classroom"><li>Join Classroom</li></Link>
             </ul>
           </div>
         </div>
@@ -52,11 +53,11 @@ const DashboardSidebar = () => {
             aria-labelledby="flush-headingTwo"
             data-bs-parent="#accordionFlushExample"
           >
-             <ul >
-              <li>Do this</li>
-              <li>Or that</li>
-              <li>Maybe this</li>
-              <li>Naah that</li>
+             <ul className="sidebar-list">
+             <Link to="/dashboard/create-classroom"><li>Create Classroom</li></Link>
+             <Link to="/dashboard/create-classroom"><li>Create Classroom</li></Link>
+             <Link to="/dashboard/create-classroom"><li>Create Classroom</li></Link>
+             <Link to="/dashboard/create-classroom"><li>Create Classroom</li></Link>
             </ul>
           </div>
         </div>

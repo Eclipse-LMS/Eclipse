@@ -8,9 +8,9 @@
 .EventList{
     width: 100%;
     height: calc(100vh - 375px);
-    background-color: #F8E9A1;
+    background-color: #282828;
     box-sizing: border-box;
-    border: 3px solid #24305E;
+    border: 3px solid white;
 }
 
 .calendar{
