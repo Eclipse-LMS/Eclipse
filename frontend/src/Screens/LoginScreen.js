@@ -85,7 +85,8 @@ function LoginBox() {
 
               <div className="line">
                 <label>
-                  <input type="checkbox" value="IsRememberMe" name="remember" /> Remember me
+                  <input type="checkbox" value="IsRememberMe" name="remember" />
+                  Remember me
               </label>
                 <Link to="/forgotpassword"><a className="forpass" href="#">Forgot Password?</a></Link>
               </div>
