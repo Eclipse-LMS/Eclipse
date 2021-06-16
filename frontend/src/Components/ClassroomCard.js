@@ -10,7 +10,7 @@ function ClassroomCard(props) {
         <div class="card-body">
           <h5 class="card-title">{props.classroom.cname}</h5>
           <p class="card-text">{props.classroom.desc}</p>
-          <a href="#" class="btn btn-primary">
+          <a href="#" class="btn">
             Go to Classroom
           </a>
         </div>
