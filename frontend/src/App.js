@@ -21,7 +21,7 @@ class App extends React.Component {
           <Route exact path="/register" component = {RegisterBox}></Route>
           <Route exact path="/forgotpassword" component = {ForgotPassword}></Route>
           <Route exact path="/resetpassword/:resetToken" component = {ResetPassword}></Route>
-          <Route exact path="/dashboard" component = {DashboardScreen} />
+          <Route path="/dashboard" component = {DashboardScreen} />
           <Route exact path="/logout" component = {LogoutHandle} />
         </Switch>
       </Router>

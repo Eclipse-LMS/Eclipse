@@ -1,0 +1,246 @@
+:root {
+  --box:#ebebeb;
+  --meracolor: #e9935a;
+  --button: #7e4011;
+  --hower: rgb(153, 152, 152);
+  --links: #e7ce81;
+  --boxinactive: #e0dbdb;
+}
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-image: url("../BgImages/bg1.jpg");
+  position: absolute;
+  background-size: cover;
+  padding-right: 1000px;
+} 
+
+.root-container{
+  top: 15vh;
+  left: 60vw;
+position: absolute;
+}
+
+.box-controller1 {
+  visibility: visible;
+  display: flex;
+  max-width: 24em;
+  min-width: 25em;
+  padding:  0px;
+  align-items: center;
+  transition: visibility 0.5s ease-out;
+}
+.box-controller2 {
+  visibility: visible;
+  display: flex;
+  max-width: 24em;
+  min-width: 25em;
+  padding:  0px;
+  align-items: center;
+  transition: visibility 0.5s ease-out;
+  margin-top: 10%;
+}
+
+.form-decor {
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(15, 15, 15, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(145, 145, 145, 0.2);
+  background-color: var(--box);
+  padding-bottom: 10px;
+  height : 450px;
+}
+
+.reglog-form {
+  min-height: 375px;
+  position: relative;
+}
+
+
+
+input[type="text"] {
+  border: 0px;
+  outline: none;
+}
+
+
+
+input[type="password"] {
+  border: 0px;
+  outline: none;
+}
+
+
+
+
+
+.box-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 24em;
+  min-width: 21em;
+  border-radius: 6px;
+  padding: 24px;
+  padding-top: 13px;
+  padding-bottom: 0;
+}
+
+
+.header {
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 3px;
+  font-family: monaco, monospace;
+  font-size: 31px;
+  border-bottom: 2px solid ;
+}
+
+#Last-add {
+  padding-left: 15px;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+
+.center{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+
+.register-btn {
+  padding: 10px 50px;
+  margin-left: 91px;
+  margin-right: 91px;
+  font-size: 18px;
+  border:1px solid #222;
+  font-family: Oxygen, sans-serif;
+  cursor: pointer;
+  position: relative;
+  margin-top: -2%;
+  margin-bottom: 0%;
+  background-color:var(--button) ;
+  color: white;
+
+}
+
+.register-btn:hover,
+.register-btn:focus {
+  border: 1px solid #ddd;
+  color: white;
+  opacity: 90%;
+
+}
+
+
+
+.form-lable {
+  width: 100%;
+  float: left;
+  position: absolute;
+  top: 13px;
+  font-size: 13px;
+  left: 11px;
+  transition: 0.5s;
+
+}
+
+.reglog-form .input-group {
+  position: relative;
+}
+
+.reglog-form input {
+  border-bottom: 1px solid #ccc;
+  float: left;
+  position: relative;
+  z-index: 9999;
+  background: transparent;
+  padding-bottom: 5px;
+  padding-left: 11px;
+  padding-top: 16px;
+}
+
+.input-group input:valid+.form-lable,
+.input-group input:focus+.form-lable {
+  top: -7px;
+  color: #605f5f;
+  font-style: oblique;
+}
+.reglog-form .box {
+  overflow: hidden;
+  padding-top: 8px;
+}
+
+
+label {
+color: #666;
+font-size: .875rem;
+position: relative;
+}
+
+
+input[type="password"] {
+  margin-bottom: .5rem;
+}
+
+.line {
+  padding-top: 20px;
+}
+
+
+#fullname {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+#fullname.p {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+#fullname > div {
+  padding: 0 2px;
+  margin-top: 10%;
+}
+.log-form .regis-form {
+  border-left: 1px solid #b9b9b9;
+  background-color: var(--links);
+}
+
+.input-group {
+  margin-top: 5%;
+}
+.active-button {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  line-height: 2;
+  cursor: pointer;
+  margin-bottom: 0%;
+  background-color: var(--box);
+
+}
+.inactive-button1 {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  line-height: 2;
+  cursor: pointer;
+  margin-bottom: 0%;
+  background-color: var(--box);
+box-shadow: inset 11px 0px 21px -10px #ccc, inset 0px 12px 8px -10px #ccc
+}
+.inactive-button2 {
+  flex: 1;
+  text-align: center;
+  height: 100%;
+  line-height: 2;
+  cursor: pointer;
+  margin-bottom: 0%;
+  background-color: var(--box);
+box-shadow: inset -11px 0px 21px -10px #ccc, inset 0px 12px 8px -10px #ccc
+}
