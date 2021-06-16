@@ -1,0 +1,9 @@
+.classroom-group{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 100%;
+    min-height: 200px;
+    background-color: rgb(202, 202, 202);
+}

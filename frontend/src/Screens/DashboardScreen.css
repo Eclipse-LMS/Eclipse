@@ -21,7 +21,7 @@ body{
 }
 
 .dashboard-grid{
-    background-color: #0C0032;
+    background-color: #98a6be;
     display: grid;
     grid-template-rows: 50px auto;
     grid-template-columns: 18% auto 20%;

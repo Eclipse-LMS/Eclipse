@@ -5,4 +5,34 @@
     background-color: rgb(212, 213, 240);
     height: 100%;
     width: 100%;
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.input-box{
+    margin: 100px auto 100px auto;
+    width: 40%;
+    background-color: #cfc2f6;
+    border: 2px solid #b8a3f9;
+    
+}
+
+.input-grp{
+    margin: 10px;
+}
+
+.input-content{
+    margin: 6px;
+}
+
+.input-grp input{
+    background: transparent;
+    border-bottom: 1px solid black;
+}
+
+.button{
+    font-family: Oxygen, sans-serif;
+    background-color: #dfc7ea;
+    margin-left: 128px;
+    margin-top: 19px;
 }
