@@ -21,6 +21,10 @@ const { protect } = require("./middleware/authenticate");
 // This forwards any requests to /api/auth to auth.js in routes.
 app.use("/api/auth", require("./routes/auth"));
 
+app.use("/api/classrooms",require("./routes/classrooms"));
+app.use("/api/user",require("./routes/user"));
+//ap/classroom
+
 // Listening to requests at PORT
 const PORT=process.env.PORT || 5000;
 app.listen(PORT,()=>console.log(`Server Running on PORT: ${PORT}`))
