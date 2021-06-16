@@ -6,13 +6,13 @@ const DashboardSchema = new mongoose.Schema({
     ClassroomName : {
         type: String,
         required : [true , "Please Add Classroom Name"],
-        default : []
+        // default : []
     },
 
     HostedBy : {
         type: mongoose.SchemaTypes.ObjectId,
         required : [true , "User Undefined" ],
-        default : []
+        // default : []
     },
 
     Students : {
