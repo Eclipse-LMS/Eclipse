@@ -10,7 +10,8 @@ const DashboardSchema = new mongoose.Schema({
     },
 
     HostedBy : {
-        type: mongoose.SchemaTypes.ObjectId,
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'User',
         required : [true , "User Undefined" ],
         // default : []
     },

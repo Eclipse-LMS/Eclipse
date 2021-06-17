@@ -16,6 +16,7 @@ connectDB();
 // Uses json middleware from express to transform data to json format.
 app.use(express.json());
 const { protect } = require("./middleware/authenticate");
+
 // ***********WRITE ROUTES BELOW*****************
 
 // This forwards any requests to /api/auth to auth.js in routes.
@@ -23,7 +24,7 @@ app.use("/api/auth", require("./routes/auth"));
 
 app.use("/api/classrooms",require("./routes/classrooms"));
 app.use("/api/user",require("./routes/user"));
-//ap/classroom
+//api/classroom
 
 // Listening to requests at PORT
 const PORT=process.env.PORT || 5000;
