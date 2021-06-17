@@ -26,4 +26,5 @@ body{
     grid-template-rows: 50px auto;
     grid-template-columns: 18% auto 20%;
     grid-template-areas: "navbar navbar navbar" "sidebar dashboard calendar";
+    /* height: calc(100vh - 0px); */
 }

@@ -294,7 +294,7 @@ input[type="password"] {
   overflow: hidden;
   padding-top: 8px;
 }
-
+n
 
 /* remember me and forgot password */
 
@@ -309,6 +309,7 @@ label {
 color: #666;
 font-size: .875rem;
 position: relative;
+vertical-align: top;
 }
 
 input[type="checkbox"] {
