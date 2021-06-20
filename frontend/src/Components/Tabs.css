@@ -1,0 +1,27 @@
+.tabs-bar{  
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    border: 1px 1px 1px 0px solid rgb(72, 21, 119);
+    background-color: blueviolet;
+    list-style: none;  
+}
+
+.tab{
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+.tab.active{
+    background-color: white;
+}
+
+.tab:hover{
+    background-color: rgb(207, 207, 207);
+}

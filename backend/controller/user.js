@@ -7,11 +7,10 @@ exports.joinclassroom = async(req,res) => {
         const _sid = req.body.sid;
         const _cid = req.body.cid;
 
-
         const ClassData = await Classroom.findById(_cid);
 
         if(!ClassData){
-            return res.status(404).json({
+            return res.status(201).json({
                 success:false,
                 error: "Class Not Found",
             });
@@ -20,7 +19,7 @@ exports.joinclassroom = async(req,res) => {
             ClassData.save();
             res.status(201).json({
                 success:true,
-                Classroom:ClassData
+                classroom:ClassData
             })
         }
 

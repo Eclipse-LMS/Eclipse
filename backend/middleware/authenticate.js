@@ -5,7 +5,6 @@ exports.protect = async (req,res,next)=>{
     let token;
     if (req.signedCookies.token && req.signedCookies.token.startsWith("Bearer")){
         token = req.signedCookies.token.split(" ")[1];
-        console.log(token);
     }
     if (!token){
         res.status(401).json({

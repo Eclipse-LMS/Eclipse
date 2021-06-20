@@ -4,8 +4,7 @@ const Classroom =  require('../models/Dashboard');
 exports.create = async (req,res)=>{
 
     try{
-        
-        const classroom = new Classroom(req.body.classroom);
+        const classroom = new Classroom(req.body);
 
         const createClassroom = await classroom.save();
 
@@ -15,7 +14,7 @@ exports.create = async (req,res)=>{
         });
 
     }catch(e){
-        res.status(400).json({
+        res.status(401).json({
             success: false,
             error:e.message
     })
@@ -24,7 +23,6 @@ exports.create = async (req,res)=>{
 
 exports.bycid = async(req,res) => {
     try{
-
         const _id = req.params.id;
         const ClassData = await Classroom.findById(_id);
 
@@ -41,7 +39,6 @@ exports.bycid = async(req,res) => {
         }
 
     }catch(e){
-
         res.status(400).json({
         success: false,
         error:e.message

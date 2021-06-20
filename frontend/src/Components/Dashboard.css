@@ -1,8 +1,8 @@
 .dashboard{
     box-sizing: border-box;
-    border: 3px solid #24305E;
-    border-radius: 25px;
-    background-color: rgb(212, 213, 240);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    background-color: rgb(241, 241, 250);
     height: 100%;
     width: 100%;
 }

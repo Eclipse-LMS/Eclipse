@@ -6,6 +6,4 @@ const {joinclassroom } = require("../controller/user");
 
 router.route("/joinclassroom").post(joinclassroom);
 
-
-
 module.exports = router;
