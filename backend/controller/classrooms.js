@@ -6,12 +6,7 @@ exports.create = async (req, res) => {
 
     try {
 
-<<<<<<< HEAD
-    try{
-        const classroom = new Classroom(req.body);
-=======
         const classroom = new Classroom(req.body.classroom);
->>>>>>> 429b636b28d4bf408655f51b12bb9187b67488b1
 
         
 
@@ -26,10 +21,6 @@ exports.create = async (req, res) => {
             classroom: createClassroom
         });
 
-<<<<<<< HEAD
-    }catch(e){
-        res.status(401).json({
-=======
     } catch (e) {
         res.status(400).json({
             success: false,
@@ -116,7 +107,6 @@ exports.byhost = async (req, res) => {
     } catch (e) {
 
         res.status(400).json({
->>>>>>> 429b636b28d4bf408655f51b12bb9187b67488b1
             success: false,
             error: e.message
         })
@@ -124,14 +114,9 @@ exports.byhost = async (req, res) => {
 }
 
 
-<<<<<<< HEAD
-exports.bycid = async(req,res) => {
-    try{
-=======
 exports.bystudent = async (req, res) => {
     try {
 
->>>>>>> 429b636b28d4bf408655f51b12bb9187b67488b1
         const _id = req.params.id;
         const ClassData = await Classroom.findById(_id);
 
@@ -147,9 +132,6 @@ exports.bystudent = async (req, res) => {
             })
         }
 
-<<<<<<< HEAD
-    }catch(e){
-=======
     } catch (e) {
 
         res.status(400).json({
@@ -170,7 +152,6 @@ exports.list = async (req, res) => {
 
     } catch (e) {
 
->>>>>>> 429b636b28d4bf408655f51b12bb9187b67488b1
         res.status(400).json({
             success: false,
             error: e.message
