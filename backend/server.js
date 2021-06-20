@@ -21,9 +21,9 @@ const { protect } = require("./middleware/authenticate");
 
 // This forwards any requests to /api/auth to auth.js in routes.
 app.use("/api/auth", require("./routes/auth"));
-
-app.use("/api/classrooms",require("./routes/classrooms"));
-app.use("/api/user",require("./routes/user"));
+app.use("/api/authenticate", protect, require( "./routes/authenticate"));
+app.use("/api/classrooms",protect,require("./routes/classrooms"));
+app.use("/api/user",protect,require("./routes/user"));
 //api/classroom
 
 // Listening to requests at PORT

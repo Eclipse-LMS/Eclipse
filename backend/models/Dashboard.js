@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const User = require("./Users");
 
 const DashboardSchema = new mongoose.Schema({
 
@@ -18,6 +19,7 @@ const DashboardSchema = new mongoose.Schema({
 
     Students : {
         type: [mongoose.SchemaTypes.ObjectId],
+        ref:'User',
         default : []
     }
 
