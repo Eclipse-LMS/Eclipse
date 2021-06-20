@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
+const User = require("./Users");
 
 const DashboardSchema = new mongoose.Schema({
 
@@ -10,13 +11,15 @@ const DashboardSchema = new mongoose.Schema({
     },
 
     HostedBy : {
-        type: mongoose.SchemaTypes.ObjectId,
+        type:mongoose.SchemaTypes.ObjectId,
+        ref:'User',
         required : [true , "User Undefined" ],
         // default : []
     },
 
     Students : {
         type: [mongoose.SchemaTypes.ObjectId],
+        ref:'User',
         default : []
     }
 

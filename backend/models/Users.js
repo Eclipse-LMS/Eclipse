@@ -25,19 +25,23 @@ const UserSchema= new mongoose.Schema({
         select: false
     },
     classroomsEnrolled: {
+        ref:"Dashboard",
         type: [mongoose.SchemaTypes.ObjectId],
         default: []
     },
     classroomsHosted: {
         type: [mongoose.SchemaTypes.ObjectId],
+        ref:"Dashboard",
         default: []
     },
     classroomsJoined: {
         type: [mongoose.SchemaTypes.ObjectId],
+        ref:"Dashboard",
         default: []
     },
     savedNotes: {
         type: [mongoose.SchemaTypes.ObjectId],
+        ref:"Dashboard",
         default: []
     },
     recievedInvites: {
@@ -45,6 +49,7 @@ const UserSchema= new mongoose.Schema({
             sender: mongoose.SchemaTypes.ObjectId,
             time: mongoose.SchemaTypes.Date
         }],
+        ref:"Dashboard",
         default: []
     },
     resetPasswordToken: String,

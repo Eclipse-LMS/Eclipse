@@ -1,7 +1,9 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/Users");
 
+
 exports.protect = async (req,res,next)=>{
+    console.log("use");
     let token;
     if (req.signedCookies.token && req.signedCookies.token.startsWith("Bearer")){
         token = req.signedCookies.token.split(" ")[1];
@@ -24,6 +26,7 @@ exports.protect = async (req,res,next)=>{
             return;
         }
         req.user=user;
+        
         next();
     } catch (error) {
         res.status(401).json({
