@@ -5,10 +5,8 @@
     padding: 5px;
     min-width: 100%;
     min-height: 200px;
-    /* background-color: rgb(212, 213, 240); */
     border: 3px solid rgb(191, 101, 251);
     overflow: auto;
-    /* height: 30%; */
     height: calc(100vh - 390px);
 }
 

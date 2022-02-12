@@ -3,11 +3,8 @@
     border: 3px solid #24305E;
     border-radius: 25px;
     background-color: rgb(243 243 243);
-    /* height: 100%; */
     width: 100%;
     height: calc(100vh - 59px);
-    /* display: flex;
-    flex-direction: column; */
 }
 
 .input-box{

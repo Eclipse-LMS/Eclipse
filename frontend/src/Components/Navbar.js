@@ -2,7 +2,8 @@ import './Navbar.css';
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
-function Navbar() {
+function Navbar() 
+{
     return (
                 <ul className = "Navbar">
                     <Link>
