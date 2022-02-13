@@ -2,7 +2,6 @@ import "../Screens/LoginScreen.css";
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-import loginimage from "../BgImages/cherry-681.png";
 
 function LoginBox() {
   const [email, setEmail] = useState("");
@@ -59,7 +58,6 @@ function LoginBox() {
 
   return (
     <div className="screen">
-    <img src={loginimage }/>
     <div className="root-container">
       <div class="form-decor">
         <div className="box-container reglog-form">

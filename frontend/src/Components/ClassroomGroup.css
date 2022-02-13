@@ -1,3 +1,21 @@
+/* .classroom-group{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 15px;
+    padding: 5px;
+    min-width: 100%;
+    min-height: 200px;
+    border: 3px solid rgb(191, 101, 251);
+    overflow: auto;
+    height: calc(100vh - 390px);
+}
+
+.not_found{
+    font-size: 20px;
+    margin: auto;
+} */
+
+
 .classroom-group{
     display: flex;
     flex-wrap: wrap;
@@ -5,10 +23,8 @@
     padding: 5px;
     min-width: 100%;
     min-height: 200px;
-    /* background-color: rgb(212, 213, 240); */
     border: 3px solid rgb(191, 101, 251);
     overflow: auto;
-    /* height: 30%; */
     height: calc(100vh - 390px);
 }
 
