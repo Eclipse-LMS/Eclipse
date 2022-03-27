@@ -1,5 +1,5 @@
 const { Error } = require('mongoose');
-const Classroom = require('../models/Dashboard');
+const Classroom = require('../models/Classroom');
 
 exports.joinclassroom = async(req,res) => {
     try{

@@ -17,16 +17,16 @@ exports.protect = async (req,res,next)=>{
     }
     try {
         const decoded = jwt.verify(token,process.env.JWT_SECRET);
-        const user = await User.findById(decoded.id);
-        if (!user){
-            res.status(404).json({
-                success: false,
-                error: "User not found"
-            });
-            return;
-        }
+        const user = User.findById(decoded.id, (err,result) => {
+            if(err){
+                res.status(404).json({
+                    success: false,
+                    error: "User not found"
+                });
+                return;
+            }
+        });
         req.user=user;
-        
         next();
     } catch (error) {
         res.status(401).json({

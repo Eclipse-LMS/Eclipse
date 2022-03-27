@@ -1,5 +1,5 @@
 const { Error } = require('mongoose');
-const Classroom = require('../models/Dashboard');
+const Classroom = require('../models/Classroom');
 const { findById } = require('../models/Users');
 
 exports.create = async (req, res) => {
@@ -118,7 +118,7 @@ exports.bystudent = async (req, res) => {
     try {
 
         const _id = req.params.id;
-        const ClassData = await Classroom.findById(_id);
+        const ClassData = await Classroom.findById(_id).exec();
 
         if (!ClassData) {
             return res.status(404).json({
@@ -143,13 +143,22 @@ exports.bystudent = async (req, res) => {
 
 exports.list = async (req, res) => {
     try {
-        const ClassList = await Classroom.find();
-
-        res.status(201).json({
-            success: true,
-            classroom: ClassList
+        const hostedClasses = Classroom.find({hostedBy: req._id}, (err, result) => {
+            if (err){
+                return res.status(200).json({
+                    success: false,
+                    error: "Server error"
+                });}
+            return result;
         });
-
+        const joinedClasses = ClassroomJoined.find({hostedBy: req._id}, (err, result) => {
+            if (err){
+                return res.status(200).json({
+                    success: false,
+                    error: "Server error"
+                });}
+            return result;
+        });
     } catch (e) {
 
         res.status(400).json({
