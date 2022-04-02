@@ -6,7 +6,7 @@ const cookieParser = require("cookie-parser");
 app.use(cookieParser('123'));
 
 app.use(require("cors")({
-    origin: "http://localhost:3000"
+	origin: "http://localhost:3000"
 }))
 
 // Connects Database
@@ -16,11 +16,16 @@ connectDB();
 // Uses json middleware from express to transform data to json format.
 app.use(express.json());
 const { protect } = require("./middleware/authenticate");
+
 // ***********WRITE ROUTES BELOW*****************
 
 // This forwards any requests to /api/auth to auth.js in routes.
 app.use("/api/auth", require("./routes/auth"));
+app.use("/api/authenticate", protect, require( "./routes/authenticate"));
+app.use("/api/classrooms",protect,require("./routes/classrooms"));
+// app.use("/api/dashboard",protect,require("./routes/dashboard"));
+//api/classroom
 
 // Listening to requests at PORT
-const PORT=process.env.PORT || 5000;
+const PORT=process.env.PORT || 5010;
 app.listen(PORT,()=>console.log(`Server Running on PORT: ${PORT}`))

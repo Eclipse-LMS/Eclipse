@@ -1,0 +1,38 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+.Navbar{
+    margin: 2px 5px 2px 5px;
+    border-radius: 10px;
+    padding-right: 60px;
+    background-image: linear-gradient(90deg, #ce6714, #e28233);
+    background-color: #190061;
+    width: calc(100% - 10px);
+    height: 100%;
+    list-style: none;
+  }
+
+.nav-logo{
+  position: absolute;
+  text-decoration: none;
+  color: white;  
+  display: inline;
+  position: absolute;
+  padding-top: 7px;
+}
+.nav-content{
+  margin: 5px 20px 5px 20px;
+  padding: 2px 5px 2px 5px;
+  display: inline;
+  text-decoration: none;
+  color: white;
+  float: right;
+}
+
+.nav-content:hover{
+  color: #24305E;
+  background-color: #F8E9A1;
+  border-radius: 10px;
+}
