@@ -1,10 +1,12 @@
-exports.loggedin = (req, res, next)=>{
+var util = require('util');
+
+exports.loggedin = (req, res)=>{
     if (req.user){
         res.status(201).json({
             success: true,
-            user: req.user
+            user: req.user,
         });
-        return next();
+        return;
     }
     res.status(400).json({
         success: false

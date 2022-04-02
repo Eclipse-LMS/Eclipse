@@ -2,6 +2,7 @@ import '../Screens/RegisterScreen.css';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useHistory } from 'react-router-dom';
+import Cookies from "universal-cookie";
 
 
 function RegisterBox() {
@@ -27,10 +28,12 @@ function RegisterBox() {
     const isValid = formValidation();
     if (isValid) {
       try {
-        const { data } = await axios.post("/api/auth/register", user);
-        alert("From has been submited")
+        const { data } = await axios.post("http://localhost:5010/api/auth/register", user);
+        const cookies = new Cookies();
+        cookies.set('sessionToken', data.sessionToken, { path: '/' });
         history.push("/dashboard");
       } catch (error) {
+        console.log(error);
         alert("Authentication Error");
       }
     }

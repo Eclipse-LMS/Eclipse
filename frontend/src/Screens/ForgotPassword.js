@@ -11,8 +11,7 @@ function ForgotPassword() {
         const isValid = formValidation();
         if (isValid) {
             try {
-                const { res } = await axios.post("/api/auth/forgotpassword", { email });
-                alert("form has been submitted");
+                const { res } = await axios.post("http://localhost:5010/api/auth/forgotpassword", { email });
             } catch (error) {
                 alert("Authentication Error");
             }
