@@ -30,8 +30,18 @@ function DashboardScreen(props) {
     }
   },[]);
   return (
-    <div>
-      
+    <div className="dashboard-grid">
+      <div className="navbar-item"><Navbar user={User}/></div>    
+      {/* <div className="sidebar-item"><DashboardSidebar/></div>     */}
+      <div className="dashboard-item">
+        <Tabs/>
+        <Switch>
+          <Route exact path="/dashboard/" component = {Dashboard}></Route>
+          <Route exact path="/dashboard/join-classroom"><JoinClassroom user={User}/></Route>
+          <Route exact path="/dashboard/create-classroom"><CreateClassroom user={User}/></Route>
+        </Switch>
+      </div>    
+      <div className="calendar-item"><Calendar/></div>    
     </div>
   )
 }

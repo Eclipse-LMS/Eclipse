@@ -24,29 +24,6 @@ const UserSchema= new mongoose.Schema({
         required: [true, "Please provide a password"],
         select: false
     },
-    classroomsEnrolled: {
-        type: [mongoose.SchemaTypes.ObjectId],
-        default: []
-    },
-    classroomsHosted: {
-        type: [mongoose.SchemaTypes.ObjectId],
-        default: []
-    },
-    classroomsJoined: {
-        type: [mongoose.SchemaTypes.ObjectId],
-        default: []
-    },
-    savedNotes: {
-        type: [mongoose.SchemaTypes.ObjectId],
-        default: []
-    },
-    recievedInvites: {
-        type: [{
-            sender: mongoose.SchemaTypes.ObjectId,
-            time: mongoose.SchemaTypes.Date
-        }],
-        default: []
-    },
     resetPasswordToken: String,
     resetPasswordLimit: Date
 },{

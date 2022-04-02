@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/Users");
 
+
 exports.protect = async (req,res,next)=>{
     try {
         let headers = req.body.headers;

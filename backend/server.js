@@ -31,6 +31,7 @@ app.use(require("express-ejs-layouts"));
 app.set("layout", "layouts/layout");
 
 const { protect } = require("./middleware/authenticate");
+
 // ***********WRITE ROUTES BELOW*****************
 
 // This forwards any requests to /api/auth to auth.js in routes.
