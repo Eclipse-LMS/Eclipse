@@ -1,17 +1,22 @@
 import React from 'react';
 import './CreateClassroom.css';
 import axios from 'axios';
+import Cookies from "universal-cookie";
 
 const CreateClassroom = (props) =>
 {
     let inp;
     const submit = async () =>{
         try {
+            const cookies = new Cookies();
             const cr = {
                 ClassroomName: inp,
                 HostedBy: props.user._id
             }
-            const classroom = await axios.post('/api/classrooms/create',cr);
+            const classroom = await axios.post('http://localhost:5010/api/classrooms/create',cr,
+            {headers: {
+                'sessionToken': cookies.get('sessionToken'),
+            }});
         } catch (error) {
             alert(error);
         }

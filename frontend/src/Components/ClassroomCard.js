@@ -3,6 +3,8 @@ import {React, useState } from "react";
 import { BrowserRouter as Router, Link, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from 'axios';
+import Cookies from "universal-cookie";
+
 
 function ClassroomCard(props) {
   const [classroom, setclassroom] = useState(props.classroom);
@@ -10,10 +12,14 @@ function ClassroomCard(props) {
 
   const join = async () => {
     try {
-      const res = await axios.post('/api/user/joinclassroom',{
+      const cookies = new Cookies();
+      const res = await axios.post('http://localhost:5010/api/user/joinclassroom',{
         sid: user._id,
         cid: classroom._id
-      });
+      },
+      {headers: {
+        'sessionToken': cookies.get('sessionToken'),
+      }});
       setclassroom(res.data.classroom);
     } catch (error) {
       alert(error);

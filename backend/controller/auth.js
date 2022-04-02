@@ -8,7 +8,7 @@ exports.register= async (req,res,next)=>{
     try {
         var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
             if(!strongRegex.test(password)) {
-                res.status(401).json({
+                res.status(500).json({
                     success: false,
                     error: "User validation failed: password: Please provide a valid password"
                 });
@@ -17,18 +17,13 @@ exports.register= async (req,res,next)=>{
         const user = await User.create({
         firstname,lastname,email,password
         });
-        res.cookie('token', 'Bearer '.concat(user.getSignedToken()), {
-            maxAge: 2628000000,
-            httpOnly: true,
-            signed: true
-        });
-        res.status(201).json({
-            success: true
+        res.status(200).json({
+            success: true,
+            sessionToken: user.getSignedToken(),
         })
     } catch (error) {
-        res.status(401).json({
+        res.status(500).json({
             success: false,
-            errorin: ei,
             error: error.message
         })        
     }
@@ -38,7 +33,7 @@ exports.register= async (req,res,next)=>{
 exports.login= async (req,res,next)=>{
     const {email,password} = req.body;
         if (!email || !password){
-            res.status(401).json({
+            res.status(500).json({
                 success:false,
                 error: "Invalid email or password"
             });
@@ -49,7 +44,7 @@ exports.login= async (req,res,next)=>{
         const user = await User.findOne({ email }).select("+password");
 
         if(!user){
-            res.status(402).json({
+            res.status(500).json({
                 success: false,
                 error: "User not found"
             });
@@ -58,23 +53,19 @@ exports.login= async (req,res,next)=>{
 
         const isMatch = await user.matchPasswords(password);
         if (!isMatch){
-            res.status(403).json({
+            res.status(500).json({
                 success: false,
                 error: "Incorrect Password"
             });
             return next();
         }
-        res.cookie('token', 'Bearer '.concat(user.getSignedToken()), {
-            maxAge: 2628000000,
-            httpOnly: true,
-            signed: true,
-        });
         res.status(200).json({
             success: true,
+            sessionToken: user.getSignedToken(),
         });
 
     } catch (error) {
-        res.status(404).json({
+        res.status(500).json({
             success: false,
             error: error.message
         })
@@ -106,14 +97,14 @@ exports.forgotpassword= async (req,res,next)=>{
                 success: true,
             });
         } catch (error) {
-            res.status(401).json({
+            res.status(500).json({
                 success: false,
                 error: error.message
             });
         }
 
     } catch (error) {
-        res.status(401).json({
+        res.status(500).json({
             success: false,
             error: "Could not send Email"
         });
@@ -123,7 +114,7 @@ exports.forgotpassword= async (req,res,next)=>{
 exports.resetpassword= async (req,res,next)=>{
     var strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     if(!strongRegex.test(req.body.password)) {
-        res.status(401).json({
+        res.status(500).json({
             success: false,
             error: "User validation failed: password: Please provide a valid password"
         });

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import loginimage from "../BgImages/cherry-681.png";
+import Cookies from "universal-cookie";
 
 function LoginBox() {
   const [email, setEmail] = useState("");
@@ -17,8 +18,9 @@ function LoginBox() {
     const isValid = formValidation();
     if (isValid)
       try {
-        const { data } = await axios.post("/api/auth/login", user);
-        alert("form has been submitted");
+        const { data } = await axios.post("http://localhost:5010/api/auth/login", user);
+        const cookies = new Cookies();
+        cookies.set('sessionToken', data.sessionToken, { path: '/' });
         history.push("/dashboard");
       } catch (error) {
         alert(error);

@@ -1,0 +1,39 @@
+<div class="container py-5"
+    style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+    <h3 class="text-center mb-3">Login S Meet</h3>
+    <div class="card" style="width:100%; max-width: 35rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;" class="card-header">
+            <p class="m-0">Login Form</p><a href="/signup" type="button" class="btn btn-outline-primary btn-sm">Sign
+                Up</a>
+        </div>
+        <div class="card-body">
+            <form action="/login" method="POST">
+                <% if(locals.messages.success){ %>
+                <div class="alert alert-success" role="alert">
+                    <%= locals.messages.success %>
+                </div>
+                <% } %>
+                <% if(locals.messages.error){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= locals.messages.error %>
+                </div>
+                <% } %>
+                <div class="form-floating mb-3">
+                    <input type="text" name="username" class="form-control" placeholder="username">
+                    <label for="floatingInput">Enter your username</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password" placeholder="password">
+                    <label for="floatingPassword">Enter your Password</label>
+                </div>
+                <button style="width: 100%;" type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #F5F5F5;
+    }
+</style>

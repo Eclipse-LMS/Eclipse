@@ -1,0 +1,58 @@
+<div class="container py-5"
+    style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
+    <h3 class="text-center mb-3">Register S Meet</h3>
+    <div class="card" style="width:100%; max-width: 35rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center;" class="card-header">
+            <p class="m-0">Signup Form</p><a href="/login" type="button"
+                class="btn btn-outline-primary btn-sm">Login</a>
+        </div>
+        <div class="card-body">
+            <form action="/signup" method="POST">
+                <% if(locals.messages.success){ %>
+                <div class="alert alert-success" role="alert">
+                    <%= locals.messages.success %>
+                </div>
+                <% } %>
+                <% if(locals.messages.err){ %>
+                <div class="alert alert-danger" role="alert">
+                    <%= locals.messages.err %>
+                </div>
+                <% } %>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input type="text" name="name" class="form-control" placeholder="name">
+                            <label>Enter your Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input type="text" name="username" class="form-control" placeholder="username">
+                            <label>Enter your Username</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-floating">
+                        <input type="email" name="email" class="form-control" placeholder="email">
+                        <label>Enter your Email</label>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="form-floating">
+                        <input type="password" class="form-control" name="password" placeholder="password">
+                        <label for="floatingPassword">Enter your Password</label>
+                    </div>
+                </div>
+                <button style="width: 100%;" type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #F5F5F5;
+    }
+</style>

@@ -19,8 +19,8 @@ function Navbar(props) {
                         <li className="nav-content">User</li>
                     </Link>
                     }
-                    <Link to="/about">
-                        <li className="nav-content">About Us</li>
+                    <Link to="/Vidcon">
+                        <li className="nav-content">Vidcon</li>
                     </Link>
                     <Link to="/" >
                         <li className="nav-content">Home</li>
